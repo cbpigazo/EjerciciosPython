@@ -10,14 +10,15 @@ from functools import reduce
 from os import remove
 from urllib.request import urlretrieve
 import csv
+from numpy import mean
 
-PATH_FICHERO = '/home/carlos/Proyectos/Python/EjerciciosPythonCarlos/ficheroPrueba.csv'
+PATH_FICHERO = '/home/carlos/Proyectos/Python/EjerciciosPython/EjerciciosPythonCarlos/ficheroPrueba.csv'
 
 def descargarFichero():
     urlretrieve('https://www.quandl.com/api/v3/datasets/EOD/IBM.csv?api_key=yNo4hVP-pJbZzv4Amz-a', PATH_FICHERO)
 
 def eliminarFichero():
-    remove('/home/carlos/Proyectos/Python/EjerciciosPythonCarlos/ficheroPrueba.csv')
+    remove('/home/carlos/Proyectos/Python/EjerciciosPython/EjerciciosPythonCarlos/ficheroPrueba.csv')
 
 def procesarFicheroComoCadena():
     with open(PATH_FICHERO) as ficheroDescargado:
@@ -29,17 +30,33 @@ def procesarFicheroComoCadena():
 def procesarFicheroComoDiccionario():
     with open(PATH_FICHERO) as ficheroDescargado:
         reader = csv.DictReader(ficheroDescargado)
-        listaDiccionario = sorted(reader, key=(operator.itemgetter('Adj_Close')), reverse=False)
+        listaDiccionario = sorted(reader, key=(operator.itemgetter('Close')), reverse=False)
 
-        valorMinimo = min(listaDiccionario, key=operator.itemgetter('Adj_Close'))
-        valorMaximo = max(listaDiccionario, key=operator.itemgetter('Adj_Close'))
-        valorMedio = reduce(lambda x, y: x + y, [float(valor['Adj_Close']) for valor in listaDiccionario]) / len(listaDiccionario)
+        valorMinimo = min(listaDiccionario, key=operator.itemgetter('Close'))
+        valorMaximo = max(listaDiccionario, key=operator.itemgetter('Close'))
+        valorMedio = reduce(lambda x, y: x + y, [float(valor['Close']) for valor in listaDiccionario]) / len(listaDiccionario)
 
-        print(valorMinimo['Adj_Close'])
-        print(valorMaximo['Adj_Close'])
-        print(valorMedio)
+        print("El valor mínimo del campo Close es: ",valorMinimo['Close'])
+        print("El valor máximo del campo Close es: ", valorMaximo['Close'])
+        print("El valor medio del campo Close es: ",    valorMedio)
         #for registro in listaDiccionario:
-            #print (registro['Adj_Close'])
+            #print (registro['Close'])
 
-descargarFichero()
-procesarFicheroComoDiccionario()
+def procesarPintarFicheroParaPruebas():
+    with open(PATH_FICHERO) as ficheroDescargado:
+        reader = csv.DictReader(ficheroDescargado)
+        listaDiccionario = sorted(reader, key=(operator.itemgetter('Close')), reverse=False)
+        for registro in listaDiccionario:
+            print (registro['Close'])
+def calcularMediaConLibreriaNumpy():
+    number_list = [45, 34, 10, 36, 12, 6, 80]
+    avg = mean(number_list)
+    print("The average is ", round(avg, 2))
+
+def iniciarFLujoNormalApp():
+    descargarFichero()
+    procesarFicheroComoDiccionario()
+    eliminarFichero()
+
+#iniciarFLujoNormalApp()
+calcularMediaConLibreriaNumpy()
