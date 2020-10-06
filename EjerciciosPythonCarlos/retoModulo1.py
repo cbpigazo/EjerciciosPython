@@ -10,7 +10,10 @@ from functools import reduce
 from os import remove
 from urllib.request import urlretrieve
 import csv
-from numpy import mean
+import numpy as numpy
+import pandas as panda
+
+URL_DESCARGA = 'https://www.quandl.com/api/v3/datasets/EOD/IBM.csv?api_key=yNo4hVP-pJbZzv4Amz-a'
 
 PATH_FICHERO = '/home/carlos/Proyectos/Python/EjerciciosPython/EjerciciosPythonCarlos/ficheroPrueba.csv'
 
@@ -31,14 +34,12 @@ def procesarFicheroComoDiccionario():
     with open(PATH_FICHERO) as ficheroDescargado:
         reader = csv.DictReader(ficheroDescargado)
         listaDiccionario = sorted(reader, key=(operator.itemgetter('Close')), reverse=False)
-
         valorMinimo = min(listaDiccionario, key=operator.itemgetter('Close'))
         valorMaximo = max(listaDiccionario, key=operator.itemgetter('Close'))
-        valorMedio = reduce(lambda x, y: x + y, [float(valor['Close']) for valor in listaDiccionario]) / len(listaDiccionario)
+        calcularMediaConLibreriaPanda()
 
         print("El valor mínimo del campo Close es: ",valorMinimo['Close'])
         print("El valor máximo del campo Close es: ", valorMaximo['Close'])
-        print("El valor medio del campo Close es: ",    valorMedio)
         #for registro in listaDiccionario:
             #print (registro['Close'])
 
@@ -48,10 +49,11 @@ def procesarPintarFicheroParaPruebas():
         listaDiccionario = sorted(reader, key=(operator.itemgetter('Close')), reverse=False)
         for registro in listaDiccionario:
             print (registro['Close'])
-def calcularMediaConLibreriaNumpy():
-    number_list = [45, 34, 10, 36, 12, 6, 80]
-    avg = mean(number_list)
-    print("The average is ", round(avg, 2))
+
+def calcularMediaConLibreriaPanda():
+    readerPanda = panda.read_csv(URL_DESCARGA)
+    valorMedio = readerPanda["Close"].mean
+    print("El valor medio del campo Close es: ", valorMedio)
 
 def iniciarFLujoNormalApp():
     descargarFichero()

@@ -94,20 +94,57 @@
     </state>
     <state x="446" y="211" width="1084" height="710" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.1864.1053@56.27.1864.1053" timestamp="1602006742105" />
     <state width="1158" height="295" key="GridCell.Tab.0.bottom" timestamp="1602016661798">
+    <state x="746" y="298" width="942" height="511" key="#xdebugger.evaluate" timestamp="1602015645818">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state width="1158" height="295" key="GridCell.Tab.0.bottom/56.27.1864.1053@56.27.1864.1053" timestamp="1602016661798" />
-    <state width="1158" height="295" key="GridCell.Tab.0.center" timestamp="1602016661797">
+    <state x="746" y="298" width="942" height="511" key="#xdebugger.evaluate/56.27.1864.1053@56.27.1864.1053" timestamp="1602015645818" />
+    <state width="1158" height="295" key="GridCell.Tab.0.bottom" timestamp="1602016593885">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state width="1158" height="295" key="GridCell.Tab.0.center/56.27.1864.1053@56.27.1864.1053" timestamp="1602016661797" />
-    <state width="1158" height="295" key="GridCell.Tab.0.left" timestamp="1602016661796">
+    <state width="1158" height="295" key="GridCell.Tab.0.bottom/56.27.1864.1053@56.27.1864.1053" timestamp="1602016593885" />
+    <state width="1158" height="295" key="GridCell.Tab.0.center" timestamp="1602016593884">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state width="1158" height="295" key="GridCell.Tab.0.left/56.27.1864.1053@56.27.1864.1053" timestamp="1602016661796" />
-    <state width="1158" height="295" key="GridCell.Tab.0.right" timestamp="1602016661797">
+    <state width="1158" height="295" key="GridCell.Tab.0.center/56.27.1864.1053@56.27.1864.1053" timestamp="1602016593884" />
+    <state width="1158" height="295" key="GridCell.Tab.0.left" timestamp="1602016593884">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state width="1158" height="295" key="GridCell.Tab.0.right/56.27.1864.1053@56.27.1864.1053" timestamp="1602016661797" />
+    <state width="1158" height="295" key="GridCell.Tab.0.left/56.27.1864.1053@56.27.1864.1053" timestamp="1602016593884" />
+    <state width="1158" height="295" key="GridCell.Tab.0.right" timestamp="1602016593885">
+      <screen x="56" y="27" width="1864" height="1053" />
+    </state>
+    <state width="1158" height="295" key="GridCell.Tab.0.right/56.27.1864.1053@56.27.1864.1053" timestamp="1602016593885" />
+    <state width="920" height="340" key="GridCell.Tab.1.bottom" timestamp="1602015670052">
+      <screen x="56" y="27" width="1864" height="1053" />
+    </state>
+    <state width="920" height="340" key="GridCell.Tab.1.bottom/56.27.1864.1053@56.27.1864.1053" timestamp="1602015670052" />
+    <state width="920" height="340" key="GridCell.Tab.1.center" timestamp="1602015670052">
+      <screen x="56" y="27" width="1864" height="1053" />
+    </state>
+    <state width="920" height="340" key="GridCell.Tab.1.center/56.27.1864.1053@56.27.1864.1053" timestamp="1602015670052" />
+    <state width="920" height="340" key="GridCell.Tab.1.left" timestamp="1602015670052">
+      <screen x="56" y="27" width="1864" height="1053" />
+    </state>
+    <state width="920" height="340" key="GridCell.Tab.1.left/56.27.1864.1053@56.27.1864.1053" timestamp="1602015670052" />
+    <state width="920" height="340" key="GridCell.Tab.1.right" timestamp="1602015670052">
+      <screen x="56" y="27" width="1864" height="1053" />
+    </state>
+    <state width="920" height="340" key="GridCell.Tab.1.right/56.27.1864.1053@56.27.1864.1053" timestamp="1602015670052" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/retoModulo1.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/retoModulo1.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
