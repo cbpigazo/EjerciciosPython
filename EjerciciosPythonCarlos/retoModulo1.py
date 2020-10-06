@@ -58,5 +58,5 @@ def iniciarFLujoNormalApp():
     procesarFicheroComoDiccionario()
     eliminarFichero()
 
-#iniciarFLujoNormalApp()
-calcularMediaConLibreriaNumpy()
+iniciarFLujoNormalApp()
+#calcularMediaConLibreriaNumpy()
