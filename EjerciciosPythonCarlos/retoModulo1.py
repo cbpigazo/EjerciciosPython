@@ -6,10 +6,10 @@ Created on Sun Oct  4 19:35:08 2020
 @author: carlos
 """
 import operator
+from functools import reduce
 from os import remove
 from urllib.request import urlretrieve
 import csv
-import pandas as panda
 
 PATH_FICHERO = '/home/carlos/Proyectos/Python/EjerciciosPythonCarlos/ficheroPrueba.csv'
 
@@ -29,9 +29,15 @@ def procesarFicheroComoCadena():
 def procesarFicheroComoDiccionario():
     with open(PATH_FICHERO) as ficheroDescargado:
         reader = csv.DictReader(ficheroDescargado)
-        listaDiccionario = sorted(reader, key=(operator.itemgetter('Adj_Close')), reverse=True)
-        minimo = min(listaDiccionario, key=operator.itemgetter("Adj_Close"))
-        print(minimo['Adj_Close'])
+        listaDiccionario = sorted(reader, key=(operator.itemgetter('Adj_Close')), reverse=False)
+
+        valorMinimo = min(listaDiccionario, key=operator.itemgetter('Adj_Close'))
+        valorMaximo = max(listaDiccionario, key=operator.itemgetter('Adj_Close'))
+        valorMedio = reduce(lambda x, y: x + y, [float(valor['Adj_Close']) for valor in listaDiccionario]) / len(listaDiccionario)
+
+        print(valorMinimo['Adj_Close'])
+        print(valorMaximo['Adj_Close'])
+        print(valorMedio)
         #for registro in listaDiccionario:
             #print (registro['Adj_Close'])
 
