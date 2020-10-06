@@ -12,6 +12,8 @@ from urllib.request import urlretrieve
 import csv
 from numpy import mean
 
+URL_DESCARGA = 'https://www.quandl.com/api/v3/datasets/EOD/IBM.csv?api_key=yNo4hVP-pJbZzv4Amz-a'
+
 PATH_FICHERO = '/home/carlos/Proyectos/Python/EjerciciosPython/EjerciciosPythonCarlos/ficheroPrueba.csv'
 
 def descargarFichero():
@@ -48,10 +50,11 @@ def procesarPintarFicheroParaPruebas():
         listaDiccionario = sorted(reader, key=(operator.itemgetter('Close')), reverse=False)
         for registro in listaDiccionario:
             print (registro['Close'])
-def calcularMediaConLibreriaNumpy():
-    number_list = [45, 34, 10, 36, 12, 6, 80]
-    avg = mean(number_list)
-    print("The average is ", round(avg, 2))
+
+def calcularMediaConLibreriaPanda():
+    readerPanda = panda.read_csv(URL_DESCARGA)
+    valorMedio = readerPanda["Close"].mean
+    print("El valor medio del campo Close es: ", valorMedio)
 
 def iniciarFLujoNormalApp():
     descargarFichero()
