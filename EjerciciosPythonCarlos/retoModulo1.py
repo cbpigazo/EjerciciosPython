@@ -11,6 +11,7 @@ from os import remove
 from urllib.request import urlretrieve
 import csv
 from numpy import mean
+import pandas as panda
 
 URL_DESCARGA = 'https://www.quandl.com/api/v3/datasets/EOD/IBM.csv?api_key=yNo4hVP-pJbZzv4Amz-a'
 
@@ -37,12 +38,11 @@ def procesarFicheroComoDiccionario():
         valorMinimo = min(listaDiccionario, key=operator.itemgetter('Close'))
         valorMaximo = max(listaDiccionario, key=operator.itemgetter('Close'))
         valorMedio = reduce(lambda x, y: x + y, [float(valor['Close']) for valor in listaDiccionario]) / len(listaDiccionario)
+        calcularDesviacionMedia()
 
         print("El valor mínimo del campo Close es: ",valorMinimo['Close'])
         print("El valor máximo del campo Close es: ", valorMaximo['Close'])
         print("El valor medio del campo Close es: ",    valorMedio)
-        #for registro in listaDiccionario:
-            #print (registro['Close'])
 
 def procesarPintarFicheroParaPruebas():
     with open(PATH_FICHERO) as ficheroDescargado:
@@ -53,8 +53,13 @@ def procesarPintarFicheroParaPruebas():
 
 def calcularMediaConLibreriaPanda():
     readerPanda = panda.read_csv(URL_DESCARGA)
-    valorMedio = readerPanda["Close"].mean
-    print("El valor medio del campo Close es: ", valorMedio)
+    #valorMedio = readerPanda["Close"].mean
+    #print("El valor medio calculado con panda del campo Close es: ", valorMedio)
+    return readerPanda
+def calcularDesviacionMedia():
+    readerPanda = calcularMediaConLibreriaPanda()
+    desviacionMedia = readerPanda["Close"].mad()
+    print("el valor de la desviación media es:",desviacionMedia)
 
 def iniciarFLujoNormalApp():
     descargarFichero()
