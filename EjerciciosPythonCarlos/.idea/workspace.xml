@@ -139,22 +139,22 @@
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state width="731" height="506" key="DebuggerActiveHint/56.27.1864.1053@56.27.1864.1053" timestamp="1602191405632" />
-    <state width="1253" height="298" key="GridCell.Tab.0.bottom" timestamp="1602194551962">
+    <state width="1151" height="354" key="GridCell.Tab.0.bottom" timestamp="1602194790092">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state width="1253" height="298" key="GridCell.Tab.0.bottom/56.27.1864.1053@56.27.1864.1053" timestamp="1602194551962" />
-    <state width="1253" height="298" key="GridCell.Tab.0.center" timestamp="1602194551962">
+    <state width="1151" height="354" key="GridCell.Tab.0.bottom/56.27.1864.1053@56.27.1864.1053" timestamp="1602194790092" />
+    <state width="1151" height="354" key="GridCell.Tab.0.center" timestamp="1602194790092">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state width="1253" height="298" key="GridCell.Tab.0.center/56.27.1864.1053@56.27.1864.1053" timestamp="1602194551962" />
-    <state width="1253" height="298" key="GridCell.Tab.0.left" timestamp="1602194551961">
+    <state width="1151" height="354" key="GridCell.Tab.0.center/56.27.1864.1053@56.27.1864.1053" timestamp="1602194790092" />
+    <state width="1151" height="354" key="GridCell.Tab.0.left" timestamp="1602194790092">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state width="1253" height="298" key="GridCell.Tab.0.left/56.27.1864.1053@56.27.1864.1053" timestamp="1602194551961" />
-    <state width="1253" height="298" key="GridCell.Tab.0.right" timestamp="1602194551962">
+    <state width="1151" height="354" key="GridCell.Tab.0.left/56.27.1864.1053@56.27.1864.1053" timestamp="1602194790092" />
+    <state width="1151" height="354" key="GridCell.Tab.0.right" timestamp="1602194790092">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
-    <state width="1253" height="298" key="GridCell.Tab.0.right/56.27.1864.1053@56.27.1864.1053" timestamp="1602194551962" />
+    <state width="1151" height="354" key="GridCell.Tab.0.right/56.27.1864.1053@56.27.1864.1053" timestamp="1602194790092" />
     <state width="1253" height="298" key="GridCell.Tab.1.bottom" timestamp="1602194551963">
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
@@ -181,12 +181,12 @@
       <breakpoints>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/retoModulo1.py</url>
-          <line>23</line>
+          <line>21</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/retoModulo1.py</url>
-          <line>37</line>
+          <line>35</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
