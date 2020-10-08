@@ -17,11 +17,11 @@ URL_DESCARGA = 'https://www.quandl.com/api/v3/datasets/EOD/IBM.csv?api_key=yNo4h
 
 PATH_FICHERO = '/home/carlos/Proyectos/Python/EjerciciosPython/EjerciciosPythonCarlos/ficheroPrueba.csv'
 
-def descargarFichero():
-    urlretrieve('https://www.quandl.com/api/v3/datasets/EOD/IBM.csv?api_key=yNo4hVP-pJbZzv4Amz-a', PATH_FICHERO)
+def descargarFichero(keyIntroducida):
+    urlretrieve('https://www.quandl.com/api/v3/datasets/EOD/IBM.csv?api_key='+keyIntroducida, PATH_FICHERO)
 
 def eliminarFichero():
-    remove('/home/carlos/Proyectos/Python/EjerciciosPython/EjerciciosPythonCarlos/ficheroPrueba.csv')
+    remove(PATH_FICHERO)
 
 def procesarFicheroComoCadena():
     with open(PATH_FICHERO) as ficheroDescargado:
@@ -62,7 +62,7 @@ def calcularDesviacionMedia():
     print("el valor de la desviación media es:",desviacionMedia)
 
 def iniciarFLujoNormalApp():
-    descargarFichero()
+    descargarFichero('yNo4hVP-pJbZzv4Amz-a')
     procesarFicheroComoDiccionario()
     eliminarFichero()
 
