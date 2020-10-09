@@ -15,18 +15,17 @@ import pandas as panda
 import urllib as urllib
 
 URL_DESCARGA = 'https://www.quandl.com/api/v3/datasets/EOD/IBM.csv?api_key=yNo4hVP-pJbZzv4Amz-a'
-PATH_FICHERO = '/home/carlos/Proyectos/Python/EjerciciosPython/EjerciciosPythonCarlos/ficheroPrueba.csv'
+PATH_FICHERO = 'ficheroPrueba.csv'
 
 def descargarFichero(nombreDataset,keyIntroducida,fechaInicio,fechaFin):
     try:
         urlretrieve('https://www.quandl.com/api/v3/datasets/'+nombreDataset+'.csv?start_date='+fechaInicio+'&end_date='+fechaFin+'&api_key='+keyIntroducida, PATH_FICHERO)
     except urllib.error.HTTPError as error:
         print(error," -->No se ha podido descargar el fichero csv. Compruebe sus datos de entrada")
-        exit()
+        menu()
 
 def eliminarFichero():
     remove(PATH_FICHERO)
-
 def procesarFicheroComoCadena():
     with open(PATH_FICHERO) as ficheroDescargado:
         reader = csv.reader(ficheroDescargado, delimiter=',', quotechar=',',
@@ -50,7 +49,7 @@ def procesarFicheroComoDiccionario():
             print("El valor medio del campo Close es: ", valorMedio)
     except KeyError as error:
         print(error," -->Error al procesar el fichero. Asegúrate de que el dataset posee el campo 'Close'")
-        exit()
+        menu()
 
 
 def calcularMediaConLibreriaPanda():
@@ -62,12 +61,6 @@ def calcularDesviacionMedia():
     readerPanda = calcularMediaConLibreriaPanda()
     desviacionMedia = readerPanda["Close"].mad()
     print("el valor de la desviación media es:",desviacionMedia)
-
-def iniciarFLujoNormalApp():
-    descargarFichero(dataSet, apiKey, fechaInicio, fechaFin)
-    procesarFicheroComoDiccionario()
-    eliminarFichero()
-
 
 def menu():
     while True:
