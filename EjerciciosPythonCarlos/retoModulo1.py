@@ -33,7 +33,7 @@ def procesarFicheroComoCadena():
         for row in reader:
             print(row)
 
-def procesarFicheroComoDiccionario():
+def procesarFicheroComoDiccionario(nombreDataset,keyIntroducida,fechaInicio,fechaFin):
     try:
         with open(PATH_FICHERO) as ficheroDescargado:
             reader = csv.DictReader(ficheroDescargado)
@@ -42,7 +42,7 @@ def procesarFicheroComoDiccionario():
             valorMinimo = min(listaDiccionario, key=operator.itemgetter('Close'))
             valorMaximo = max(listaDiccionario, key=operator.itemgetter('Close'))
             valorMedio = reduce(lambda x, y: x + y, [float(valor['Close']) for valor in listaDiccionario]) / len(listaDiccionario)
-            calcularDesviacionMedia()
+            calcularDesviacionMedia(nombreDataset,keyIntroducida,fechaInicio,fechaFin)
 
             print("El valor mínimo del campo Close es: ", valorMinimo['Close'])
             print("El valor máximo del campo Close es: ", valorMaximo['Close'])
@@ -52,13 +52,13 @@ def procesarFicheroComoDiccionario():
         menu()
 
 
-def calcularMediaConLibreriaPanda():
-    readerPanda = panda.read_csv(URL_DESCARGA)
+def calcularMediaConLibreriaPanda(nombreDataset,keyIntroducida,fechaInicio,fechaFin):
+    readerPanda = panda.read_csv('https://www.quandl.com/api/v3/datasets/'+nombreDataset+'.csv?start_date='+fechaInicio+'&end_date='+fechaFin+'&api_key='+keyIntroducida)
     #valorMedio = readerPanda["Close"].mean
     #print("El valor medio calculado con panda del campo Close es: ", valorMedio)
     return readerPanda
-def calcularDesviacionMedia():
-    readerPanda = calcularMediaConLibreriaPanda()
+def calcularDesviacionMedia(nombreDataset,keyIntroducida,fechaInicio,fechaFin):
+    readerPanda = panda.read_csv('https://www.quandl.com/api/v3/datasets/'+nombreDataset+'.csv?start_date='+fechaInicio+'&end_date='+fechaFin+'&api_key='+keyIntroducida)
     desviacionMedia = readerPanda["Close"].mad()
     print("el valor de la desviación media es:",desviacionMedia)
 
@@ -75,7 +75,7 @@ def menu():
             fechaFin = input("fechaFin recomendada 2017-10-06")
 
             descargarFichero(dataset, apiKey, fechaInicio, fechaFin)
-            procesarFicheroComoDiccionario()
+            procesarFicheroComoDiccionario(dataset, apiKey, fechaInicio, fechaFin)
             eliminarFichero()
         elif opcionElegida.strip().upper() == "N":
             print("Saliendo del sistema =)")
