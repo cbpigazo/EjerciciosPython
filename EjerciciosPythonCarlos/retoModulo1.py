@@ -14,11 +14,14 @@ from numpy import mean
 import pandas as panda
 
 URL_DESCARGA = 'https://www.quandl.com/api/v3/datasets/EOD/IBM.csv?api_key=yNo4hVP-pJbZzv4Amz-a'
-
 PATH_FICHERO = '/home/carlos/Proyectos/Python/EjerciciosPython/EjerciciosPythonCarlos/ficheroPrueba.csv'
 
 def descargarFichero(nombreDataset,keyIntroducida,fechaInicio,fechaFin):
-    urlretrieve('https://www.quandl.com/api/v3/datasets/'+nombreDataset+'.csv?start_date='+fechaInicio+'&end_date='+fechaFin+'&api_key='+keyIntroducida, PATH_FICHERO)
+    try:
+        urlretrieve('https://www.quandl.com/pi/v3/datasets/'+nombreDataset+'.csv?start_date='+fechaInicio+'&end_date='+fechaFin+'&api_key='+keyIntroducida, PATH_FICHERO)
+    except Exception as error:
+        print(error," -->No se ha podido descargar el fichero csv. Compruebe sus datos de entrada")
+        exit()
 
 def eliminarFichero():
     remove(PATH_FICHERO)
@@ -62,7 +65,7 @@ def calcularDesviacionMedia():
     print("el valor de la desviación media es:",desviacionMedia)
 
 def iniciarFLujoNormalApp():
-    descargarFichero('EOD/IBM', 'yNo4hVP-pJbZzv4Amz-a','2016-10-06','2017-10-06')
+    descargarFichero('EOD/IBM', 'yNo4hVP-pJbZzv4Amz-a', '2016-10-06', '2017-10-06')
     procesarFicheroComoDiccionario()
     eliminarFichero()
 
