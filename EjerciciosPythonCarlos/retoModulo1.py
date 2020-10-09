@@ -64,8 +64,29 @@ def calcularDesviacionMedia():
     print("el valor de la desviación media es:",desviacionMedia)
 
 def iniciarFLujoNormalApp():
-    descargarFichero('OPEC/ORB', 'yNo4hVP-pJbZzv4Amz-a', '2003-01-06', '2003-03-06')
+    descargarFichero(dataSet, apiKey, fechaInicio, fechaFin)
     procesarFicheroComoDiccionario()
     eliminarFichero()
 
-iniciarFLujoNormalApp()
+
+def menu():
+    while True:
+        print("Pulse 'Y' si desea empezar, o 'N' si no desea continuar")
+        opcionElegida =input("Desea continuar? Y/N")
+        if opcionElegida.strip().upper() == "Y":
+            print("Introduzca dataset, su apiKey y la fecha de inicio y fin para procesar un fichero")
+
+            dataset = input("dataSet. Dataset recomendado EOD/IBM")
+            apiKey = input("apiKey. apiKey recomendada yNo4hVP-pJbZzv4Amz-a")
+            fechaInicio = input("fechaInicio recomendada 2016-10-06")
+            fechaFin = input("fechaFin recomendada 2017-10-06")
+
+            descargarFichero(dataset, apiKey, fechaInicio, fechaFin)
+            procesarFicheroComoDiccionario()
+            eliminarFichero()
+        elif opcionElegida.strip().upper() == "N":
+            print("Saliendo del sistema =)")
+            exit()
+        else:
+            print("Solo se aceptan los valores 'Y' / 'N'")
+menu()
