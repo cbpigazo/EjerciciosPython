@@ -14,7 +14,6 @@ from numpy import mean
 import pandas as panda
 import urllib as urllib
 
-URL_DESCARGA = 'https://www.quandl.com/api/v3/datasets/EOD/IBM.csv?api_key=yNo4hVP-pJbZzv4Amz-a'
 PATH_FICHERO = 'ficheroPrueba.csv'
 
 def descargarFichero(nombreDataset,keyIntroducida,fechaInicio,fechaFin):
@@ -51,12 +50,12 @@ def procesarFicheroComoDiccionario(nombreDataset,keyIntroducida,fechaInicio,fech
         print(error," -->Error al procesar el fichero. Asegúrate de que el dataset posee el campo 'Close'")
         menu()
 
-
+"""
 def calcularMediaConLibreriaPanda(nombreDataset,keyIntroducida,fechaInicio,fechaFin):
-    readerPanda = panda.read_csv('https://www.quandl.com/api/v3/datasets/'+nombreDataset+'.csv?start_date='+fechaInicio+'&end_date='+fechaFin+'&api_key='+keyIntroducida)
+    #readerPanda = panda.read_csv('https://www.quandl.com/api/v3/datasets/'+nombreDataset+'.csv?start_date='+fechaInicio+'&end_date='+fechaFin+'&api_key='+keyIntroducida)
     #valorMedio = readerPanda["Close"].mean
     #print("El valor medio calculado con panda del campo Close es: ", valorMedio)
-    return readerPanda
+    return readerPanda"""
 def calcularDesviacionMedia(nombreDataset,keyIntroducida,fechaInicio,fechaFin):
     readerPanda = panda.read_csv('https://www.quandl.com/api/v3/datasets/'+nombreDataset+'.csv?start_date='+fechaInicio+'&end_date='+fechaFin+'&api_key='+keyIntroducida)
     desviacionMedia = readerPanda["Close"].mad()
